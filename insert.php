@@ -36,11 +36,17 @@ function insert_values($conn, $start_id, $values) {
     $stmt->close();
 }
 
+
+$logFile = '/var/log/applications/script.log';
+
 // Values to insert
 $values_to_insert = ['value1', 'value2', 'value3'];
 
 // Start inserting from id 1 (or continue from the most recent id)
 insert_values($conn, 1, $values_to_insert);
+
+// Log "inserted" with the current timestamp
+file_put_contents($logFile, "inserted " . date('Y-m-d H:i:s') . PHP_EOL, FILE_APPEND);
 
 $conn->close();
 ?>
