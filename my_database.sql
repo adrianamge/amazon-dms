@@ -1,0 +1,8 @@
+CREATE DATABASE my_database;
+
+USE my_database;
+
+CREATE TABLE IF NOT EXISTS records (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    value VARCHAR(255) NOT NULL
+);
